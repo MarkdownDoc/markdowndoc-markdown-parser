@@ -1,6 +1,6 @@
 {
   "name": "markdowndoc-markdown-parser",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Markdown parser based on markdown-it.",
   "author": {
     "name": "Daniel Bannert",
