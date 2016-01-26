@@ -5,11 +5,11 @@ import checkbox from 'markdown-it-checkbox';
 import linkscheme from 'markdown-it-linkscheme';
 import responsive from 'markdown-it-responsive';
 
-export default function(options, filepath) {
+export default function (options, filepath) {
   function responsiveOption() {
     return {
       responsive: {
-        'srcset': {
+        srcset: {
           'header-*': [{
             width: 480,
             rename: {
@@ -22,7 +22,7 @@ export default function(options, filepath) {
             },
           }],
         },
-        'sizes': {
+        sizes: {
           'header-*': '(min-width: 48em) 33.3vw, 100vw',
         },
       },
@@ -51,7 +51,7 @@ export default function(options, filepath) {
 
   function markdown() {
     const md = new MarkdownIt({
-      highlight: function(str, lang) {
+      highlight(str, lang) {
         return markdownHighlight(options, str, lang);
       },
     });
@@ -72,7 +72,7 @@ export default function(options, filepath) {
   }
 
   function renderHtml() {
-    const md = markdown(options);
+    const md = markdown();
     const file = read.sync(filepath, { encoding: 'utf8' });
 
     return md.render(file, { encoding: 'utf8' });

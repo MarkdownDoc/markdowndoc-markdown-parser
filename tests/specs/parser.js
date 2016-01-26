@@ -2,7 +2,9 @@
 
 var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
 
-exports.__esModule = true;
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
 
 var _readFile = require('read-file');
 
@@ -32,7 +34,7 @@ exports['default'] = function (options, filepath) {
   function responsiveOption() {
     return {
       responsive: {
-        'srcset': {
+        srcset: {
           'header-*': [{
             width: 480,
             rename: {
@@ -45,7 +47,7 @@ exports['default'] = function (options, filepath) {
             }
           }]
         },
-        'sizes': {
+        sizes: {
           'header-*': '(min-width: 48em) 33.3vw, 100vw'
         }
       }
@@ -95,7 +97,7 @@ exports['default'] = function (options, filepath) {
   }
 
   function renderHtml() {
-    var md = markdown(options);
+    var md = markdown();
     var file = _readFile2['default'].sync(filepath, { encoding: 'utf8' });
 
     return md.render(file, { encoding: 'utf8' });
