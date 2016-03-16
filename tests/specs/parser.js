@@ -26,34 +26,7 @@ var _markdownItLinkscheme = require('markdown-it-linkscheme');
 
 var _markdownItLinkscheme2 = _interopRequireDefault(_markdownItLinkscheme);
 
-var _markdownItResponsive = require('markdown-it-responsive');
-
-var _markdownItResponsive2 = _interopRequireDefault(_markdownItResponsive);
-
 exports['default'] = function (options, filepath) {
-  function responsiveOption() {
-    return {
-      responsive: {
-        srcset: {
-          'header-*': [{
-            width: 480,
-            rename: {
-              suffix: '-small'
-            }
-          }, {
-            width: 768,
-            rename: {
-              suffix: '-medium'
-            }
-          }]
-        },
-        sizes: {
-          'header-*': '(min-width: 48em) 33.3vw, 100vw'
-        }
-      }
-    };
-  }
-
   function markdownHighlight(str, lang) {
     if (options.highlight) {
       return '';
@@ -85,10 +58,6 @@ exports['default'] = function (options, filepath) {
       md.use(_markdownItLinkscheme2['default']);
     }
 
-    if (options.responsiveimage) {
-      md.use(_markdownItResponsive2['default'], responsiveOption());
-    }
-
     if (options.checkbox) {
       md.use(_markdownItCheckbox2['default']);
     }
@@ -103,7 +72,7 @@ exports['default'] = function (options, filepath) {
     return md.render(file, { encoding: 'utf8' });
   }
 
-  return renderHtml(options, filepath);
+  return renderHtml();
 };
 
 module.exports = exports['default'];
